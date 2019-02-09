@@ -4,6 +4,6 @@ exports.addData = (req,res) => {
 	db.create(req.body).then(results => res.send(results))
 };
 exports.getData = (req,res) => {
-	db.findOne({_id: req.params.id})
+	db.findOne({restaurant_id: req.params.id})
 		.then(singleData => res.send(singleData));
 };

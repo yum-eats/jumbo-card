@@ -5,6 +5,7 @@ const db = require('./connection.js');
 mongoose.Promise = global.Promise;
 
 var details = new Schema({
+	restaurant_id : Number,
 	name: String,
 	phone: String,
 	claimed: Boolean,

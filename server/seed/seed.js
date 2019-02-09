@@ -105,8 +105,9 @@ let arrOfCats = () => {
 };
 //console.log(arrOfCats());
 
-for(var i = 0; i < 100; i++) {
+for(var i = 1; i <= 100; i++) {
 	var singleDetail = {
+		"restaurant_id" : i,
 		"name": resturantNameGen(),
 		"phone": phoneNumberGen(),
 		"claimed" : clamed(),

@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.post('/id', controllers.addData);
 //will talk to controllers that will talk to database to post data
-app.get('/:id/details', controllers.getData);
+app.get('/details/:id', controllers.getData);
 
 
 //listener so we can have our server run on the browser
