@@ -13,7 +13,6 @@ module.exports = {
 		filename: 'bundle.js',
 		path: DIST_DIR
 	},
-	plugins: [new HtmlWebpackPlugin()],
 	module: {
 		rules: [
 			{
@@ -26,5 +25,11 @@ module.exports = {
 				}
 			}
 		]
-	}
+	},
+	plugins: [new HtmlWebpackPlugin({ //this HtmlWebpackPlugin generates a html file for us
+		hash : true, // This will add a dinamic
+		template: `${SRC_DIR}/index.html` //this is the original path that will generate the index.html in the dist folder there is no need to add any script tags
+		//this plugin/webpack injects it in for you;
+
+	})],
 };
