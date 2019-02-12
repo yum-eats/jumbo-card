@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 // ^ this is for the html Creator from webpack, very cool because it can include the configured jsx
 // to js to that html template
 
@@ -23,6 +25,14 @@ module.exports = {
 				query: {
 					presets: ['@babel/preset-env','@babel/preset-react']
 				}
+			},
+			{
+				test: /\.scss$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: ['css-loader', 'sass-loader'],
+					publicPath : DIST_DIR
+				})
 			}
 		]
 	},
@@ -30,6 +40,11 @@ module.exports = {
 		hash : true, // This will add a dinamic
 		template: `${SRC_DIR}/index.html` //this is the original path that will generate the index.html in the dist folder there is no need to add any script tags
 		//this plugin/webpack injects it in for you;
-
-	})],
+	}),
+		new ExtractTextPlugin({
+			filename: 'style.css',
+			disable: false,
+			allChunks: true,
+		})
+	],
 };
