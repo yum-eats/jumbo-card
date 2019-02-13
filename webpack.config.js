@@ -33,6 +33,10 @@ module.exports = {
 					use: ['css-loader', 'sass-loader'],
 					publicPath : DIST_DIR
 				})
+			},
+			{
+				test: /\.(png|jpg|gif|svg)$/,
+				use: 'file-loader?name=[name].[ext]&outputPath=images/'
 			}
 		]
 	},

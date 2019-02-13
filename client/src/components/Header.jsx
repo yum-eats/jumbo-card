@@ -1,4 +1,15 @@
 import React from 'react';
+import star from '../images/icons/stars.png';
+
+const images = {
+	iconsStar: {
+		width: 132,
+		height: 24,
+		backgroundImage: `url(${star})`,
+		backgroundPosition: "0px -192px"
+	}
+};
+
 
 class Header extends React.Component {
 	constructor(){
@@ -14,7 +25,7 @@ class Header extends React.Component {
 						<div className='claim-status'><span className='claimed-icon'></span> Claimed</div>
 					</div>
 					<div className='rating-info'>
-						<div className='rating-stars'> Image of stars here</div>
+						<div className='rating-stars' style={images.iconsStar}></div>
 						<p> 717 reviews</p>
 					</div>
 					<div className='price-category'>
