@@ -10,7 +10,9 @@ class Subheader extends React.Component {
 	render() {
 		return(
 			<div className="page-subheader">
-				<div className="mapbox"></div>
+				<div className="mapbox">
+
+				</div>
 
 				<Showcase />
 			</div>
