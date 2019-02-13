@@ -35,8 +35,8 @@ module.exports = {
 				})
 			},
 			{
-				test: /\.(png|jpg|gif|svg)$/,
-				use: 'file-loader?name=[name].[ext]&outputPath=images/'
+				test: /\.(gif|png|jpe?g|svg)$/i, //this is related to file-loader
+				use: 'file-loader?name=[name].[ext]&outputPath=images/' // this will allow to have our image folder generated into the dis folder so our src and dist can continue to be sync
 			}
 		]
 	},
