@@ -1,4 +1,5 @@
 import React from 'react';
+import ShareForm from './ShareForm.jsx'
 import star from '../images/icons/stars.png';
 import claimed from '../images/icons/checking.svg';
 import bigStar from '../images/icons/star.svg';
@@ -55,14 +56,22 @@ const images = {
 class Header extends React.Component {
 	constructor(props){
 		super(props);
-		this.name = this.props.details.name;
-		this.claimed = this.props.details.claimed;
-		this.reviews = this.props.details.review_count;
-		this.cats = this.props.details.category;
-		this.price = this.props.details.price_level;
-		this.rating = this.props.details.star_rating;
+		this.state = {
+			shareForm : false,
+			name : this.props.details.name,
+			claimed : this.props.details.claimed,
+			reviews : this.props.details.review_count,
+			cats : this.props.details.category,
+			price : this.props.details.price_level,
+			rating : this.props.details.star_rating
+		}
 	}
-
+	togglePopup(event) {
+		console.log('I was clicked')
+		this.setState({
+			shareForm: !this.state.shareForm
+		});
+	}
 	render() {
 		//this will help calulate the right y-axis for the star rating image
 		if(this.rating > 0){
@@ -70,24 +79,25 @@ class Header extends React.Component {
 			let indexRating = rating.indexOf(this.rating);
 			images.iconsStar.backgroundPosition = `0px -${indexRating * 24}px`
 		}
+
 		return(
 			<div className="page-header">
 				<div className="page-header-left">
 					<div className="title">
-						<h1>{this.name}</h1>
+						<h1>{this.state.name}</h1>
 
-						{ this.claimed ? <div className='claim-status'><span className='claimed-icon' style={images.iconClaimed}></span> Claimed</div> : ''}
+						{ this.state.claimed ? <div className='claim-status'><span className='claimed-icon' style={images.iconClaimed}></span> Claimed</div> : ''}
 
 					</div>
 					<div className='rating-info'>
 						<div className='rating-stars' style={images.iconsStar}></div>
-						<p> {this.reviews} reviews</p>
+						<p> {this.state.reviews} reviews</p>
 					</div>
 					<div className='price-category'>
-						<span className='price-range'>{this.price}</span>
+						<span className='price-range'>{this.state.price}</span>
 						<ul>
-							{this.cats.map((cat,index)=>{
-								if(index === this.cats.length-1){
+							{this.state.cats.map((cat,index)=>{
+								if(index === this.state.cats.length-1){
 									return <li>{cat}</li>
 								}
 								return <li>{cat},</li>
@@ -102,11 +112,17 @@ class Header extends React.Component {
 					<div className="small-buttons">
 						<ul>
 							<li> <span className="photo-icon" style={images.iconPhoto}></span> Add Photo</li>
-							<li><span className="share-icon" style={images.iconShare}></span> Share</li>
+							<li name="shareForm" onClick={this.togglePopup.bind(this)} ><span className="share-icon" style={images.iconShare}></span> Share</li>
 							<li><span className="sae-icon" style={images.iconSave}></span> Save</li>
 						</ul>
 					</div>
 				</div>
+				{this.state.shareForm ?
+					<ShareForm
+						closePopup={this.togglePopup.bind(this)}
+					/>
+					: null
+				}
 			</div>
 		);
 	}
