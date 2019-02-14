@@ -67,9 +67,9 @@ class Header extends React.Component {
 		}
 	}
 	togglePopup(event) {
-		console.log('I was clicked')
+		let name = event.target.getAttribute('name');
 		this.setState({
-			shareForm: !this.state.shareForm
+			[name]: !this.state[name]
 		});
 	}
 	render() {

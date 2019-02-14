@@ -8,7 +8,7 @@ class ShareForm extends React.Component {
 		return (
 			<div className='popup'>
 				<form className='popup_inner'>
-					<button type='button' onClick={this.props.closePopup}>close me</button>
+					<button name="shareForm" type='button' onClick={this.props.closePopup}>close me</button>
 					<label>
 						Your Name:
 						<input type="text"/>
