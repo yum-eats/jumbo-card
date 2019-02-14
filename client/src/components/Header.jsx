@@ -6,7 +6,7 @@ import bigStar from '../images/icons/star.svg';
 import photo from '../images/icons/camera.svg';
 import share from '../images/icons/share-symbol.svg';
 import save from '../images/icons/bookmark-white.svg';
-const images = {
+let images = {
 	iconsStar: {
 		width: 132,
 		height: 24,
@@ -74,9 +74,9 @@ class Header extends React.Component {
 	}
 	render() {
 		//this will help calulate the right y-axis for the star rating image
-		if(this.rating > 0){
+		if(this.state.rating > 0){
 			let rating = [0, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
-			let indexRating = rating.indexOf(this.rating);
+			let indexRating = rating.indexOf(this.state.rating);
 			images.iconsStar.backgroundPosition = `0px -${indexRating * 24}px`
 		}
 

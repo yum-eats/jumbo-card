@@ -16,7 +16,7 @@ class App extends React.Component {
 	}
 
 	componentDidMount () {
-		axios.get('/details/21')
+		axios.get('/details/45')
 			.then(res => {
 				const resturant = res.data;
 				this.setState({ isLoaded: true, details: resturant });
@@ -32,10 +32,11 @@ class App extends React.Component {
 		} else {
 			return (
 				<div className="main-container">
+					<div className="background-grey"></div>
 					<div className="board-body">
 						<Header details={details}/>
 
-						<Subheader/>
+						<Subheader details={details}/>
 
 					</div>
 				</div>
