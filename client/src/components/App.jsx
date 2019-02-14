@@ -16,7 +16,7 @@ class App extends React.Component {
 	}
 
 	componentDidMount () {
-		axios.get('/details/45')
+		axios.get('/details/5')
 			.then(res => {
 				const resturant = res.data;
 				this.setState({ isLoaded: true, details: resturant });

@@ -75,7 +75,7 @@ class Subheader extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.details)
+		//console.log(this.props.details)
 		return(
 			<div className="page-subheader">
 				<div className="mapbox-details">
