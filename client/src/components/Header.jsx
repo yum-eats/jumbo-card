@@ -53,28 +53,46 @@ const images = {
 
 
 class Header extends React.Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
+		this.name = this.props.details.name;
+		this.claimed = this.props.details.claimed;
+		this.reviews = this.props.details.review_count;
+		this.cats = this.props.details.category;
+		this.price = this.props.details.price_level;
+		this.rating = this.props.details.star_rating;
 	}
 
 	render() {
+		//this will help calulate the right y-axis for the star rating image
+		if(this.rating > 0){
+			let rating = [0, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+			let indexRating = rating.indexOf(this.rating);
+			images.iconsStar.backgroundPosition = `0px -${indexRating * 24}px`
+		}
 		return(
 			<div className="page-header">
 				<div className="page-header-left">
 					<div className="title">
-						<h1>Daughter Thai Kitchen</h1>
-						<div className='claim-status'><span className='claimed-icon' style={images.iconClaimed}></span> Claimed</div>
+						<h1>{this.name}</h1>
+
+						{ this.claimed ? <div className='claim-status'><span className='claimed-icon' style={images.iconClaimed}></span> Claimed</div> : ''}
+
 					</div>
 					<div className='rating-info'>
 						<div className='rating-stars' style={images.iconsStar}></div>
-						<p> 717 reviews</p>
+						<p> {this.reviews} reviews</p>
 					</div>
 					<div className='price-category'>
-						<span className='price-range'>$$$</span>
+						<span className='price-range'>{this.price}</span>
 						<ul>
-							<li>Cat 1,</li>
-							<li>Cat 2,</li>
-							<li>Cat 3</li>
+							{this.cats.map((cat,index)=>{
+								if(index === this.cats.length-1){
+									return <li>{cat}</li>
+								}
+								return <li>{cat},</li>
+							})
+							}
 						</ul>
 					</div>
 				</div>

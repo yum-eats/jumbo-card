@@ -41,6 +41,11 @@ let clamed = () => {
 	}
 	return false;
 };
+let starRating = () => {
+	let raiting = [0,1,1.5,2,2.5,3,3.5,4,4.5,5];
+	return raiting[randomRangeNumbGen(raiting.length)]
+}
+//console.log(starRating());
 //console.log(clamed());
 let priceLevelGen = () => {
 	let money = '';
@@ -113,6 +118,7 @@ for(var i = 1; i <= 100; i++) {
 		"claimed" : clamed(),
 		"price_level": priceLevelGen(),
 		"review_count": randomRangeNumbGen(3542),
+		"star_rating": starRating(),
 		"address": addressGen(),
 		"city": city(),
 		"zip_code": zip(),
