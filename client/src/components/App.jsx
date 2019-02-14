@@ -1,4 +1,9 @@
+const styyle = require('../style.scss');
 import React from 'react';
+
+import Header from './Header.jsx';
+import Subheader from './Subheader.jsx';
+
 class App extends React.Component {
 	constructor(){
 		super();
@@ -6,7 +11,14 @@ class App extends React.Component {
 
 	render() {
 		return(
-			<div>Hello mel</div>
+			<div className="main-container">
+				<div className="board-body">
+					<Header />
+
+					<Subheader />
+
+				</div>
+			</div>
 		);
 	}
 }

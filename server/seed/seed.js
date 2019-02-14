@@ -127,8 +127,6 @@ for(var i = 1; i <= 100; i++) {
 		"email": "123@resturantSite.com"
 	};
 
-	db.create(singleDetail, function (err) {
-		if (err) return handleError(err);
-	});
+	db.create(singleDetail).catch((err) => res.send(err));
 }
 
