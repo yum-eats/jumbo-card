@@ -27,7 +27,17 @@ body {
 	}
 }
 .main-container {
-	background: #f5f5f5;
+	//background: #f5f5f5;
+	.background-grey {
+	  z-index: -1;
+	  position: absolute;
+	  top: 0;
+	  right: -9999px;
+	  bottom: 305px;
+	  left: -9999px;
+	  background: #f5f5f5;
+	  border-bottom: 1px solid #e6e6e6;
+	}
 }
 .board-body{
   width: 960px;
@@ -37,6 +47,7 @@ body {
 .page-header{
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 13px;
 	.page-header-left {
 	   padding-right: 30px;
 		.title {
@@ -161,7 +172,44 @@ body {
 
 //Subheader style
 .page-subheader {
-
+	display: flex;
+  .mapbox-details {
+	  width: 33.33333%;
+	  padding: 5px;
+	  background: #fff;
+	  border: 1px solid #ccc;
+	  .mapbox {
+		  overflow: hidden;
+		  height: 135px;
+		  border: 1px solid #ccc;
+		  img {
+			  width: 100%;
+		  }
+	  }
+	  .details {
+		  margin: 5px;
+		  .plain {
+			color: initial;
+		  }
+		  span {
+			  margin-right: 5px;
+		  }
+		  address{
+			  display: flex;
+			font-style: normal;
+			font-size: 12px;
+			font-weight: bold;
+			margin-bottom: 3px;
+		  }
+		li {
+			display: flex;
+			color: #0073bb;
+			font-size: 12px;
+			list-style: none;
+			margin-bottom: 3px;
+		}
+	  }
+  }
 }
 .star-icon {
 	width: 50px;
