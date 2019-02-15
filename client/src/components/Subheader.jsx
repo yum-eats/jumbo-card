@@ -3,6 +3,7 @@ import React from 'react';
 import Showcase from './Subheader-showcase.jsx';
 import Map from './googlemap.jsx';
 import MessageForm from './MessageForm.jsx';
+import Textform from "./Textform.jsx";
 import mapBackground from  '../images/staticmap.png'
 
 import marker from '../images/icons/maps-and-flags.svg';
@@ -74,7 +75,8 @@ class Subheader extends React.Component {
 			city : this.props.details.city,
 			phone : this.props.details.phone,
 			mapshow : false,
-			messageForm: false
+			messageForm: false,
+			textFrom: false
 		}
 	}
 	togglePopup(event) {
@@ -86,8 +88,21 @@ class Subheader extends React.Component {
 	}
 	render() {
 		//console.log(this.props.details)
+		let form;
+		console.log(this.state.mapshow,this.state.messageForm ,this.state.textFrom )
+	  if(this.state.mapshow ){
+			form = <Map closePopup={this.togglePopup.bind(this)} />
+	  }else if ( this.state.messageForm ) {
+			form =	<MessageForm name={this.state.name} closePopup={this.togglePopup.bind(this)} />
+	  }else if (this.state.textFrom ) {
+			form = <Textform details={this.props.details} closePopup={this.togglePopup.bind(this)} />
+	  }else {
+	  	form = null
+	  }
+
 		return(
 			<div className="page-subheader">
+				{form}
 				<div className="mapbox-details">
 					<div className="mapbox clickme">
 						<img name="mapshow" onClick={this.togglePopup.bind(this)} src={mapBackground}></img>
@@ -101,19 +116,11 @@ class Subheader extends React.Component {
 						<li className="clickme"><span style={icon.website}></span> <a href="https://www.google.com/" target="_blank">website.com</a></li>
 						<li className="clickme" name="messageForm" onClick={this.togglePopup.bind(this)}><span style={icon.message}></span> Message the business</li>
 						<li><span style={icon.reservation} ></span> Make a Reservation</li>
-						<li><span style={icon.cell}></span> Send to your Phone</li>
+						<li className="clickme" name="textFrom" onClick={this.togglePopup.bind(this)}><span style={icon.cell}></span> Send to your Phone</li>
 					</ul>
 				</div>
 
 				<Showcase />
-				{this.state.mapshow ?
-					<Map
-						closePopup={this.togglePopup.bind(this)}
-					/>
-					: this.state.messageForm ?
-						<MessageForm name={this.state.name} closePopup={this.togglePopup.bind(this)} />
-						: null
-				}
 			</div>
 		);
 	}
