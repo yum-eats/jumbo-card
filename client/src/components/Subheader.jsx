@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Showcase from './Subheader-showcase.jsx';
+import Map from './googlemap.jsx';
+import MessageForm from './MessageForm.jsx';
 import mapBackground from  '../images/staticmap.png'
 
 import marker from '../images/icons/maps-and-flags.svg';
@@ -67,35 +69,51 @@ class Subheader extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
+			name : this.props.details.name,
 			address : this.props.details.address,
 			city : this.props.details.city,
-			phone : this.props.details.phone
-
+			phone : this.props.details.phone,
+			mapshow : false,
+			messageForm: false
 		}
 	}
-
+	togglePopup(event) {
+		console.log('clicked')
+		let name = event.target.getAttribute('name');
+		this.setState({
+			[name]: !this.state[name]
+		});
+	}
 	render() {
 		//console.log(this.props.details)
 		return(
 			<div className="page-subheader">
 				<div className="mapbox-details">
-					<div className="mapbox">
-						<img src={mapBackground}></img>
+					<div className="mapbox clickme">
+						<img name="mapshow" onClick={this.togglePopup.bind(this)} src={mapBackground}></img>
 					</div>
 					<ul className="details">
 						<address><span style={icon.marker}></span> {this.state.address} <br/>
 							{this.state.city}
 						</address>
-						<li><span style={icon.direction}></span> Get Direction</li>
+						<li className="clickme" name="mapshow" onClick={this.togglePopup.bind(this)}><span style={icon.direction}></span> Get Direction</li>
 						<li className="plain"><span style={icon.phone}></span> {this.state.phone}</li>
-						<li><span style={icon.website}></span> website.com</li>
-						<li><span style={icon.message}></span> Message the business</li>
+						<li className="clickme"><span style={icon.website}></span> <a href="https://www.google.com/" target="_blank">website.com</a></li>
+						<li className="clickme" name="messageForm" onClick={this.togglePopup.bind(this)}><span style={icon.message}></span> Message the business</li>
 						<li><span style={icon.reservation} ></span> Make a Reservation</li>
 						<li><span style={icon.cell}></span> Send to your Phone</li>
 					</ul>
 				</div>
 
 				<Showcase />
+				{this.state.mapshow ?
+					<Map
+						closePopup={this.togglePopup.bind(this)}
+					/>
+					: this.state.messageForm ?
+						<MessageForm name={this.state.name} closePopup={this.togglePopup.bind(this)} />
+						: null
+				}
 			</div>
 		);
 	}
