@@ -11,6 +11,7 @@ var details = new Schema({
 	claimed: Boolean,
 	price_level: String,
 	review_count: Number,
+	star_rating : Number,
 	address: String,
 	city: String,
 	zip_code: Number,
