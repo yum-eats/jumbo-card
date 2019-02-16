@@ -21,10 +21,7 @@ module.exports = {
 				test:/\.jsx?$/,
 				exclude: /(node_modules|bower_components)/,
 				include: SRC_DIR,
-				loader: 'babel-loader',
-				query: {
-					presets: ['@babel/preset-env','@babel/preset-react']
-				}
+				loader: 'babel-loader'
 			},
 			{
 				test: /\.scss$/,
