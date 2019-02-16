@@ -6,13 +6,7 @@ import bigStar from '../images/icons/star.svg';
 import photo from '../images/icons/camera.svg';
 import share from '../images/icons/share-symbol.svg';
 import save from '../images/icons/bookmark-white.svg';
-const images = {
-	iconsStar: {
-		width: 132,
-		height: 24,
-		backgroundImage: `url(${star})`,
-		backgroundPosition: "0px -192px"
-	},
+let images = {
 	iconClaimed : {
 		width: 15,
 		height: 15,
@@ -58,6 +52,7 @@ class Header extends React.Component {
 		super(props);
 		this.state = {
 			shareForm : false,
+			starPosition : '0px 0px',
 			name : this.props.details.name,
 			claimed : this.props.details.claimed,
 			reviews : this.props.details.review_count,
@@ -72,13 +67,16 @@ class Header extends React.Component {
 			[name]: !this.state[name]
 		});
 	}
+	componentDidMount () {
+		if(this.state.rating > 0) {
+			let rating = [0, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+			let indexRating = rating.indexOf(this.state.rating);
+			this.setState({
+				starPosition: `0px -${indexRating * 24}px`
+			})}
+	}
 	render() {
 		//this will help calulate the right y-axis for the star rating image
-		if(this.rating > 0){
-			let rating = [0, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
-			let indexRating = rating.indexOf(this.rating);
-			images.iconsStar.backgroundPosition = `0px -${indexRating * 24}px`
-		}
 
 		return(
 			<div className="page-header">
@@ -90,7 +88,7 @@ class Header extends React.Component {
 
 					</div>
 					<div className='rating-info'>
-						<div className='rating-stars' style={images.iconsStar}></div>
+						<div className='rating-stars' style={{width: 132, height: 24, backgroundImage: `url(${star})`,backgroundPosition : this.state.starPosition}}></div>
 						<p> {this.state.reviews} reviews</p>
 					</div>
 					<div className='price-category'>
