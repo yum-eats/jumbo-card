@@ -19,7 +19,9 @@
     "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
     "seed": "node server/seed/seed.js",
-    "test": "jest --watch"
+    "test": "jest --updateSnapshot || true",
+    "test:watch": "jest --watch --updateSnapshot || true",
+    "test:coverage": "jest --coverage --colors --updateSnapshot || true"
   },
   "keywords": [],
   "dependencies": {
