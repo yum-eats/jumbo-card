@@ -77,7 +77,7 @@ class Header extends React.Component {
 	}
 	render() {
 		//this will help calulate the right y-axis for the star rating image
-
+		//console.log(JSON.stringify(this.props.details, null, 4))
 		return(
 			<div className="page-header">
 				<div className="page-header-left">
