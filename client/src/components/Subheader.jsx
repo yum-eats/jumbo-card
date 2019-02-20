@@ -4,63 +4,56 @@ import Showcase from './Subheader-showcase.jsx';
 import Map from './googlemap.jsx';
 import MessageForm from './MessageForm.jsx';
 import Textform from "./Textform.jsx";
-import mapBackground from  '../images/staticmap.png'
 
-import marker from '../images/icons/maps-and-flags.svg';
-import direction from '../images/icons/compass.svg';
-import phone from '../images/icons/phone-call.svg';
-import message from '../images/icons/speech-bubble.svg';
-import website from '../images/icons/external-link-symbol.svg';
-import reservation from '../images/icons/calendar.svg';
-import cell from '../images/icons/smartphone.svg';
+
 
 const icon = {
 	marker : {
 		width: 18,
 		height: 18,
-		backgroundImage: `url(${marker})`,
+		backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/maps-and-flags.svg)`,
 		display:"block",
 		backgroundSize: 'contain'
 	},
 	direction : {
 		width: 18,
 		height: 18,
-		backgroundImage: `url(${direction})`,
+		backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/compass.svg)`,
 		display:"block",
 		backgroundSize: 'contain'
 	},
 	phone : {
 		width: 18,
 		height: 18,
-		backgroundImage: `url(${phone})`,
+		backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/phone-call.svg)`,
 		display:"block",
 		backgroundSize: 'contain'
 	},
 	website : {
 		width: 18,
 		height: 18,
-		backgroundImage: `url(${website})`,
+		backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/external-link-symbol.svg)`,
 		display:"block",
 		backgroundSize: 'contain'
 	},
 	message : {
 		width: 18,
 		height: 18,
-		backgroundImage: `url(${message})`,
+		backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/speech-bubble.svg)`,
 		display:"block",
 		backgroundSize: 'contain'
 	},
 	reservation : {
 		width: 18,
 		height: 18,
-		backgroundImage: `url(${reservation})`,
+		backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/calendar.svg)`,
 		display:"block",
 		backgroundSize: 'contain'
 	},
 	cell : {
 		width: 18,
 		height: 18,
-		backgroundImage: `url(${cell})`,
+		backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/smartphone.svg)`,
 		display:"block",
 		backgroundSize: 'contain'
 	}
@@ -105,7 +98,7 @@ class Subheader extends React.Component {
 				{form}
 				<div className="mapbox-details">
 					<div className="mapbox clickme">
-						<img name="mapshow" onClick={this.togglePopup.bind(this)} src={mapBackground}></img>
+						<img name="mapshow" onClick={this.togglePopup.bind(this)} src='https://s3.us-east-2.amazonaws.com/jumbo-card/staticmap.png'></img>
 					</div>
 					<ul className="details">
 						<address><span style={icon.marker}></span> {this.state.address} <br/>
