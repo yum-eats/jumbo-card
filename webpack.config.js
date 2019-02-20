@@ -28,11 +28,8 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: ['css-loader', 'sass-loader'],
-					publicPath : DIST_DIR
-				})
+				use: ['style-loader', 'css-loader', 'sass-loader']
+
 			},
 			{
 				test: /\.(gif|png|jpe?g|svg)$/i, //this is related to file-loader
@@ -40,15 +37,5 @@ module.exports = {
 			}
 		]
 	},
-	plugins: [new HtmlWebpackPlugin({ //this HtmlWebpackPlugin generates a html file for us
-		hash : true, // This will add a dinamic
-		template: `${SRC_DIR}/index.html` //this is the original path that will generate the index.html in the dist folder there is no need to add any script tags
-		//this plugin/webpack injects it in for you;
-	}),
-		new ExtractTextPlugin({
-			filename: 'style.css',
-			disable: false,
-			allChunks: true,
-		})
-	],
+	plugins: [],
 };
