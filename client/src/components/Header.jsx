@@ -1,44 +1,39 @@
 import React from 'react';
 import ShareForm from './ShareForm.jsx'
-import star from '../images/icons/stars.png';
-import claimed from '../images/icons/checking.svg';
-import bigStar from '../images/icons/star.svg';
-import photo from '../images/icons/camera.svg';
-import share from '../images/icons/share-symbol.svg';
-import save from '../images/icons/bookmark-white.svg';
+
 let images = {
 	iconClaimed : {
 		width: 15,
 		height: 15,
-		backgroundImage: `url(${claimed})`,
+		backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/checking.svg)`,
 		display:"block",
 		backgroundSize: 'contain'
 	},
 	iconBigStar: {
 		width: 15,
 		height: 15,
-		backgroundImage: `url(${bigStar})`,
+		backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/star.svg)`,
 		display:"block",
 		backgroundSize: 'contain'
 	},
 	iconPhoto : {
 		width: 20,
 		height: 20,
-		backgroundImage: `url(${photo})`,
+		backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/camera.svg)`,
 		display:"block",
 		backgroundSize: 'contain'
 	},
 	iconShare : {
 		width: 15,
 		height: 15,
-		backgroundImage: `url(${share})`,
+		backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/share-symbol.svg)`,
 		display:"block",
 		backgroundSize: 'contain'
 	},
 	iconSave : {
 		width: 15,
 		height: 15,
-		backgroundImage: `url(${save})`,
+		backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/bookmark-white.svg)`,
 		display:"block",
 		backgroundSize: 'contain'
 	}
@@ -88,7 +83,7 @@ class Header extends React.Component {
 
 					</div>
 					<div className='rating-info'>
-						<div className='rating-stars' style={{width: 132, height: 24, backgroundImage: `url(${star})`,backgroundPosition : this.state.starPosition}}></div>
+						<div className='rating-stars' style={{width: 132, height: 24, backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/stars.png)`,backgroundPosition : this.state.starPosition}}></div>
 						<p> {this.state.reviews} reviews</p>
 					</div>
 					<div className='price-category'>

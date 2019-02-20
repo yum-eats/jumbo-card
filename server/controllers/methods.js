@@ -5,6 +5,8 @@ exports.addData = (req,res) => {
 };
 exports.getData = (req,res) => {
 	db.findOne({restaurant_id: req.params.id})
-		.then(singleData => res.send(singleData))
+		.then((singleData) => {
+			res.setHeader('Access-Control-Allow-Origin', '*');
+			res.send(singleData)})
 		.catch(err => res.send(err));
 };

@@ -1,6 +1,4 @@
 import React from 'react';
-import Smallpic from '../images/thumb-nail.jpg';
-import star from '../images/icons/stars.png';
 
 class Textform extends React.Component {
 	constructor(props) {
@@ -35,11 +33,11 @@ class Textform extends React.Component {
 					<hr/>
 					<div className="wrapper">
 					<div className="little-card">
-						<img src={Smallpic} />
+						<img src="https://s3.us-east-2.amazonaws.com/jumbo-card/thumb-nail.jpg" />
 						<div className="details">
 							<p>{this.props.details.name}</p>
 							<div className='rating-info'>
-								<div className='rating-stars' style={{width: 102, height: 18, backgroundImage: `url(${star})`,backgroundPosition : this.state.starPosition}}></div>
+								<div className='rating-stars' style={{width: 102, height: 18, backgroundImage: `url(https://s3.us-east-2.amazonaws.com/jumbo-card/stars.png)`,backgroundPosition : this.state.starPosition}}></div>
 								<p> {this.state.reviews} reviews</p>
 							</div>
 							<div className='price-category'>

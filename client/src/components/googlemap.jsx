@@ -1,5 +1,4 @@
 import React from 'react';
-import bigmap from '../images/direction.png'
 class Map extends React.Component {
 	constructor(props) {
 		super(props)
@@ -10,7 +9,7 @@ class Map extends React.Component {
 
 				<div className='popup_inner map'>
 					<button name="mapshow" type='button' onClick={this.props.closePopup} className="clickme">X</button>
-					<img src={bigmap}/>
+					<img src='https://s3.us-east-2.amazonaws.com/jumbo-card/direction.png'/>
 				</div>
 			</div>
 		);
