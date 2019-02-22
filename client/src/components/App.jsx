@@ -16,11 +16,12 @@ class App extends React.Component {
 	}
 
 	componentDidMount () {
-		axios.get('/details/8')
+		//console.log(this.props.endpoint)
+		axios.get(`/api/${this.props.endpoint}`)
 			.then(res => {
-				const resturant = res.data;
+				let resturant = res.data;
 				this.setState({ isLoaded: true, details: resturant });
-			})
+			}).catch(err => console.log(err))
 	}
 
 	render() {

@@ -73,7 +73,7 @@ class Subheader extends React.Component {
 		}
 	}
 	togglePopup(event) {
-		console.log('clicked')
+		//console.log('clicked')
 		let name = event.target.getAttribute('name');
 		this.setState({
 			[name]: !this.state[name]
@@ -82,7 +82,7 @@ class Subheader extends React.Component {
 	render() {
 		//console.log(this.props.details)
 		let form;
-		console.log(this.state.mapshow,this.state.messageForm ,this.state.textFrom )
+		//console.log(this.state.mapshow,this.state.messageForm ,this.state.textFrom )
 	  if(this.state.mapshow ){
 			form = <Map closePopup={this.togglePopup.bind(this)} />
 	  }else if ( this.state.messageForm ) {

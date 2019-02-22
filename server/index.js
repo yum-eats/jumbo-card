@@ -14,7 +14,12 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.post('/id', controllers.addData);
 //will talk to controllers that will talk to database to post data
-app.get('/details/:id', controllers.getData);
+app.get('/api/:id', controllers.getData);
+
+app.use('*', (req, res) => {
+	//console.log('ganggang');
+	res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
 
 //listener so we can have our server run on the browser
