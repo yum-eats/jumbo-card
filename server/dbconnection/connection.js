@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongouri = 'mongodb://localhost:27017/yum_eats'; // create schema before running
+const mongouri = 'mongodb+srv://root:root@jumbo-card-f8gcv.mongodb.net/test?retryWrites=true'; // create schema before running
 
 const db = mongoose.connect(mongouri,{
 	useNewUrlParser : true

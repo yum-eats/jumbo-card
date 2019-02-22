@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const port = 3001; //note...somes you should use diffrent ports
+const port = 8081; //note...somes you should use diffrent ports
 
 const controllers = require('./controllers/methods.js'); //this has you get access to getAllData
 

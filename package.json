@@ -5,9 +5,11 @@
   "author": "",
   "license": "ISC",
   "main": "webpack.config.js",
+  "private": true,
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
     "react-dev": "webpack -d --watch",
+    "build": "webpack --mode=production",
     "seed": "node server/seed/seed.js"
   },
   "keywords": [],
@@ -19,7 +21,10 @@
     "mysql": "^2.16.0",
     "path": "^0.12.7",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "ejs": "latest",
+    "aws-sdk": "latest",
+    "body-parser": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
